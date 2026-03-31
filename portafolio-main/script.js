@@ -1,6 +1,6 @@
-/* ============================================================
+/* ═══════════════════════════════════════════════════════════════
    PORTAFOLIO INGRIS — script.js
-   ============================================================ */
+═══════════════════════════════════════════════════════════════ */
 
 /* ── CURSOR PERSONALIZADO ────────────────────────────────────── */
 const cursorDot  = document.getElementById('cursor');
@@ -8,14 +8,15 @@ const cursorRing = document.getElementById('cursor-ring');
 let mx = 0, my = 0, rx = 0, ry = 0;
 
 document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
+  mx = e.clientX;
+  my = e.clientY;
   cursorDot.style.left = mx + 'px';
   cursorDot.style.top  = my + 'px';
 });
 
 (function animateRing() {
-  rx += (mx - rx) * .12;
-  ry += (my - ry) * .12;
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
   cursorRing.style.left = rx + 'px';
   cursorRing.style.top  = ry + 'px';
   requestAnimationFrame(animateRing);
@@ -24,7 +25,7 @@ document.addEventListener('mousemove', e => {
 document.querySelectorAll('a, button, .tech-card, .proj-card, .tab-btn, .car-btn, .contact-item')
   .forEach(el => {
     el.addEventListener('mouseenter', () => {
-      cursorDot.style.transform  = 'translate(-50%,-50%) scale(2)';
+      cursorDot.style.transform  = 'translate(-50%,-50%) scale(2.2)';
       cursorDot.style.background = 'var(--accent2)';
       cursorRing.style.width     = '52px';
       cursorRing.style.height    = '52px';
@@ -37,47 +38,58 @@ document.querySelectorAll('a, button, .tech-card, .proj-card, .tab-btn, .car-btn
     });
   });
 
-/* ── EFECTO TYPING ───────────────────────────────────────────── */
-const words = ['Analista de Datos', 'BI Developer', 'Ingeniera de Sistemas', 'Power BI Expert', 'Automatización'];
-let wordIndex = 0, charIndex = 0, deleting = false;
-const typeTarget = document.getElementById('typeTarget');
-
-function type() {
-  const word = words[wordIndex];
-  typeTarget.textContent = deleting ? word.slice(0, --charIndex) : word.slice(0, ++charIndex);
-  typeTarget.style.color = 'var(--accent2)';
-
-  if (!deleting && charIndex === word.length) {
-    setTimeout(() => { deleting = true; }, 1800);
-    setTimeout(type, 100);
-    return;
-  }
-  if (deleting && charIndex === 0) {
-    deleting = false;
-    wordIndex = (wordIndex + 1) % words.length;
-    setTimeout(type, 300);
-    return;
-  }
-  setTimeout(type, deleting ? 60 : 90);
-}
-type();
-
-/* ── MENÚ HAMBURGUESA (MÓVIL) ────────────────────────────────── */
-document.getElementById('hamburger').addEventListener('click', () => {
-  document.getElementById('navLinks').classList.toggle('open');
-});
-
 /* ── SCROLL REVEAL ───────────────────────────────────────────── */
 const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      revealObserver.unobserve(e.target);
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
     }
   });
-}, { threshold: .12 });
+}, { threshold: 0.08 });
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* ── EFECTO TYPING ───────────────────────────────────────────── */
+const words = ['Analista de Datos', 'BI Developer', 'Ingeniera de Sistemas', 'Power BI Expert', 'Automatización'];
+let wordIndex = 0, charIndex = 0, isDeleting = false;
+const typeTarget = document.getElementById('typeTarget');
+
+function typeEffect() {
+  const currentWord = words[wordIndex];
+  if (isDeleting) {
+    typeTarget.textContent = currentWord.slice(0, --charIndex);
+  } else {
+    typeTarget.textContent = currentWord.slice(0, ++charIndex);
+  }
+
+  if (!isDeleting && charIndex === currentWord.length) {
+    setTimeout(() => { isDeleting = true; }, 1800);
+    setTimeout(typeEffect, 100);
+    return;
+  }
+  if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    wordIndex = (wordIndex + 1) % words.length;
+    setTimeout(typeEffect, 350);
+    return;
+  }
+  setTimeout(typeEffect, isDeleting ? 60 : 90);
+}
+typeEffect();
+
+/* ── MENÚ HAMBURGUESA ────────────────────────────────────────── */
+const hamburger = document.getElementById('hamburger');
+const navLinks  = document.getElementById('navLinks');
+
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+
+// Cerrar menú al hacer click en un link
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => navLinks.classList.remove('open'));
+});
 
 /* ── TABS DE PROYECTOS ───────────────────────────────────────── */
 document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -90,10 +102,12 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 });
 
 /* ── CARRUSEL POWER BI ───────────────────────────────────────── */
-const track  = document.getElementById('pbiTrack');
-const cards  = track.querySelectorAll('.proj-card');
+const track         = document.getElementById('pbiTrack');
+const cards         = track.querySelectorAll('.proj-card');
 const dotsContainer = document.getElementById('carDots');
-let currentIndex = 0;
+const prevBtn       = document.getElementById('prevBtn');
+const nextBtn       = document.getElementById('nextBtn');
+let currentIndex    = 0;
 
 // Crear dots
 cards.forEach((_, i) => {
@@ -105,20 +119,31 @@ cards.forEach((_, i) => {
 
 function goTo(i) {
   currentIndex = Math.max(0, Math.min(i, cards.length - 1));
-  const cardWidth = cards[0].getBoundingClientRect().width + 24; // 24 = gap
+  const cardWidth = cards[0].getBoundingClientRect().width + 24; // 24 = gap en px
   track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+
+  // Actualizar dots
   dotsContainer.querySelectorAll('.dot').forEach((d, j) => {
     d.classList.toggle('active', j === currentIndex);
   });
+
+  // Estados de los botones
+  prevBtn.disabled = currentIndex === 0;
+  nextBtn.disabled = currentIndex === cards.length - 1;
 }
 
-document.getElementById('prevBtn').addEventListener('click', () => goTo(currentIndex - 1));
-document.getElementById('nextBtn').addEventListener('click', () => goTo(currentIndex + 1));
+prevBtn.addEventListener('click', () => goTo(currentIndex - 1));
+nextBtn.addEventListener('click', () => goTo(currentIndex + 1));
 window.addEventListener('resize', () => goTo(currentIndex));
 
-// Soporte swipe táctil
+// Inicializar estado de botones
+goTo(0);
+
+// Swipe táctil
 let touchStartX = 0;
-track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+track.addEventListener('touchstart', e => {
+  touchStartX = e.touches[0].clientX;
+}, { passive: true });
 track.addEventListener('touchend', e => {
   const dx = touchStartX - e.changedTouches[0].clientX;
   if (Math.abs(dx) > 40) goTo(currentIndex + (dx > 0 ? 1 : -1));
@@ -126,26 +151,25 @@ track.addEventListener('touchend', e => {
 
 /* ── ACORDEÓN ────────────────────────────────────────────────── */
 function toggleAcc(btn) {
+  // Cerrar otros del mismo card si se quiere
   btn.classList.toggle('open');
   btn.nextElementSibling.classList.toggle('open');
 }
-// Exponer globalmente porque se llama desde atributo onclick en el HTML
-window.toggleAcc = toggleAcc;
+window.toggleAcc = toggleAcc; // exponer globalmente para onclick en HTML
 
-/* ── ACTIVAR EMBED DE POWER BI ───────────────────────────────── */
+/* ── ACTIVAR EMBED POWER BI ──────────────────────────────────── */
 function activateEmbed(overlayId, iframeId) {
   const overlay = document.getElementById(overlayId);
   overlay.style.opacity = '0';
   overlay.style.pointerEvents = 'none';
-
   const iframe = document.getElementById(iframeId);
   iframe.style.display = 'block';
-  // ↓ Descomenta y pega la URL pública de Power BI Service:
-  // iframe.src = 'https://app.powerbi.com/view?r=TU_TOKEN_AQUI';
+  // ↓ Descomenta y reemplaza con tu URL pública de Power BI:
+  // iframe.src = 'https://app.powerbi.com/view?r=TU_TOKEN';
 }
 window.activateEmbed = activateEmbed;
 
-/* ── FORMULARIO DE CONTACTO → MAILTO ────────────────────────── */
+/* ── FORMULARIO → MAILTO ─────────────────────────────────────── */
 function sendMail(e) {
   e.preventDefault();
   const name    = document.getElementById('fname').value;
@@ -157,7 +181,7 @@ function sendMail(e) {
 }
 window.sendMail = sendMail;
 
-/* ── RESALTADO ACTIVO EN NAV AL HACER SCROLL ─────────────────── */
+/* ── RESALTADO ACTIVO NAV ────────────────────────────────────── */
 const navSections = document.querySelectorAll('section[id]');
 window.addEventListener('scroll', () => {
   let current = '';
