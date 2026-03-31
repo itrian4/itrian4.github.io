@@ -299,7 +299,8 @@ section { padding:7rem 6%; position:relative; }
 .proj-panel.active { display:block; }
 
 /* ── CARRUSEL ────────────────────────────────────────────────── */
-.carousel-wrap { position:relative; overflow:hidden; }
+.carousel-outer { position:relative; }
+.carousel-wrap  { position:relative; overflow:hidden; }
 .carousel-track {
   display:flex; gap:1.5rem;
   transition: transform .45s cubic-bezier(.4,0,.2,1);
@@ -375,11 +376,27 @@ section { padding:7rem 6%; position:relative; }
 .carousel-controls {
   display:flex; align-items:center; justify-content:center; gap:1rem; margin-top:1.5rem;
 }
+.carousel-outer { position:relative; }
+
 .car-btn {
-  width:40px; height:40px; border-radius:50%; border:1.5px solid var(--border);
-  background:transparent; color:var(--text); cursor:none; transition:.2s; font-size:.9rem;
+  position:absolute; top:50%; z-index:10;
+  transform:translateY(-50%);
+  width:46px; height:46px; border-radius:50%;
+  border:1.5px solid var(--border);
+  background:rgba(13,13,20,.85);
+  backdrop-filter:blur(10px);
+  color:var(--text); cursor:none; transition:.2s; font-size:.95rem;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 4px 20px rgba(0,0,0,.4);
 }
-.car-btn:hover { border-color:var(--accent); color:var(--accent); }
+#prevBtn { left:-23px; }
+#nextBtn { right:-23px; }
+.car-btn:hover {
+  border-color:var(--accent); color:var(--accent);
+  background:rgba(176,96,255,.15);
+  box-shadow:0 4px 24px rgba(176,96,255,.3);
+}
+
 .car-dots { display:flex; gap:.5rem; }
 .dot {
   width:8px; height:8px; border-radius:50%;

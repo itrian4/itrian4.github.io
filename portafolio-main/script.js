@@ -105,7 +105,7 @@ cards.forEach((_, i) => {
 
 function goTo(i) {
   currentIndex = Math.max(0, Math.min(i, cards.length - 1));
-  const cardWidth = cards[0].offsetWidth + 24; // 24 = gap
+  const cardWidth = cards[0].getBoundingClientRect().width + 24; // 24 = gap
   track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
   dotsContainer.querySelectorAll('.dot').forEach((d, j) => {
     d.classList.toggle('active', j === currentIndex);
