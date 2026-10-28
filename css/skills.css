@@ -1,0 +1,144 @@
+/* ═══════════════════════════════════════════════════════════
+   SKILLS.CSS — Sección de habilidades y barras de nivel
+═══════════════════════════════════════════════════════════ */
+
+.skills {
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.skills-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* ─── Barras de habilidades ─── */
+.skills-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.skill-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.skill-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.skill-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.skill-level-text {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--text-dim);
+}
+
+.skill-track {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  border-radius: 100px;
+  background: linear-gradient(90deg, var(--indigo) 0%, var(--cyan) 100%);
+  width: 0%;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── Badges / tarjetas de tecnología ─── */
+.skills-badges {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+}
+
+.skill-badge {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: border-color 0.2s, transform 0.2s, background 0.2s;
+}
+
+.skill-badge:hover {
+  border-color: var(--indigo);
+  background: rgba(99, 102, 241, 0.06);
+  transform: translateY(-2px);
+}
+
+.badge-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.badge-info { flex: 1; min-width: 0; }
+
+.badge-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: block;
+}
+
+.badge-category {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  display: block;
+  margin-top: 0.1rem;
+}
+
+/* Indicador de nivel en badge */
+.badge-dots {
+  display: flex;
+  gap: 3px;
+  margin-top: 0.35rem;
+}
+
+.badge-dot-item {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+}
+
+.badge-dot-item.filled {
+  background: var(--indigo);
+}
+
+.badge-dot-item.filled.high {
+  background: var(--cyan);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+  .skills-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .skills-badges {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .skills-badges { grid-template-columns: repeat(2, 1fr); }
+}

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portafolio profesional de Analista de Datos | Power BI, Python, ETL, Automatización" />
+  <title>Data Portfolio | Analista BI & Datos</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/about.css" />
+  <link rel="stylesheet" href="css/projects.css" />
+  <link rel="stylesheet" href="css/skills.css" />
+  <link rel="stylesheet" href="css/testimonials.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+</head>
+<body>
+
+  <!-- ═══════════ NAVBAR ═══════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#inicio" class="nav-logo">
+        <span class="logo-icon">◈</span>
+        <span class="logo-text">DataPortfolio</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#inicio"      class="nav-link active" data-i18n="nav.home">Inicio</a></li>
+        <li><a href="#sobre-mi"    class="nav-link"        data-i18n="nav.about">Sobre mí</a></li>
+        <li><a href="#proyectos"   class="nav-link"        data-i18n="nav.projects">Proyectos</a></li>
+        <li><a href="#habilidades" class="nav-link"        data-i18n="nav.skills">Habilidades</a></li>
+        <li><a href="#testimonios" class="nav-link"        data-i18n="nav.testimonials">Testimonios</a></li>
+        <li><a href="#contacto"    class="nav-link"        data-i18n="nav.contact">Contacto</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Selector de idioma -->
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="es" title="Español">🇪🇸 ES</button>
+          <button class="lang-btn"        data-lang="en" title="English">🇺🇸 EN</button>
+          <button class="lang-btn"        data-lang="pt" title="Português">🇧🇷 PT</button>
+        </div>
+        <a href="assets/cv.pdf" download class="btn-cv">
+          <span>↓</span> <span data-i18n="nav.cv">Descargar CV</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero" id="inicio">
+    <div class="hero-bg">
+      <div class="grid-overlay"></div>
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+    </div>
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span data-i18n="hero.badge">Disponible para proyectos freelance</span>
+        </div>
+        <h1 class="hero-title">
+          <span data-i18n="hero.title1">Transformo datos en</span><br />
+          <span class="gradient-text" data-i18n="hero.title2">decisiones inteligentes</span>
+        </h1>
+        <p class="hero-subtitle" data-i18n-html="hero.subtitle">
+          Ingeniera de sistemas especializada en <strong>Power BI</strong>, <strong>Python</strong> y
+          automatización de procesos. Diseño dashboards ejecutivos y pipelines ETL que
+          convierten datos complejos en insights accionables.
+        </p>
+        <div class="hero-specialties">
+          <span class="specialty-tag">Power BI</span>
+          <span class="specialty-tag">Python</span>
+          <span class="specialty-tag">SQL</span>
+          <span class="specialty-tag">ETL</span>
+          <span class="specialty-tag">Power Automate</span>
+          <span class="specialty-tag">DAX</span>
+        </div>
+        <div class="hero-cta">
+          <a href="#proyectos" class="btn-primary" data-i18n="hero.cta1">Ver proyectos →</a>
+          <a href="#contacto"  class="btn-secondary" data-i18n="hero.cta2">Hablemos</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number" data-target="25">0</span>+
+            <span class="stat-label" data-i18n="hero.stat1">Proyectos completados</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-number" data-target="15">0</span>+
+            <span class="stat-label" data-i18n="hero.stat2">Clientes satisfechos</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-number" data-target="5">0</span>+
+            <span class="stat-label" data-i18n="hero.stat3">Años de experiencia</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="avatar-container">
+          <div class="avatar-ring"></div>
+          <div class="avatar-ring ring-2"></div>
+          <div class="avatar-placeholder">
+            <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="60" cy="45" r="22" fill="#6366f1" opacity="0.8"/>
+              <ellipse cx="60" cy="95" rx="38" ry="28" fill="#6366f1" opacity="0.6"/>
+            </svg>
+          </div>
+          <div class="floating-card card-1">
+            <span class="card-icon">📊</span>
+            <div>
+              <div class="card-title" data-i18n="hero.card1">Dashboard ventas</div>
+              <div class="card-sub">+32% eficiencia</div>
+            </div>
+          </div>
+          <div class="floating-card card-2">
+            <span class="card-icon">🤖</span>
+            <div>
+              <div class="card-title" data-i18n="hero.card2">Automatización</div>
+              <div class="card-sub">-8h/semana</div>
+            </div>
+          </div>
+          <div class="floating-card card-3">
+            <span class="card-icon">🐍</span>
+            <div>
+              <div class="card-title">Python ETL</div>
+              <div class="card-sub">10M+ filas</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SOBRE MÍ ═══════════ -->
+  <section class="about" id="sobre-mi">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="about.tag">// sobre_mi.py</span>
+        <h2 class="section-title" data-i18n="about.title">Sobre mí</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="about-lead"  data-i18n="about.lead">
+            Soy ingeniera de sistemas con pasión por convertir datos crudos en información valiosa para la toma de decisiones empresariales.
+          </p>
+          <p class="about-body" data-i18n="about.body1">
+            Me especializo en diseñar soluciones end-to-end: desde la extracción y limpieza de datos con Python hasta la visualización final en dashboards de Power BI que ejecutivos y equipos operativos realmente usan.
+          </p>
+          <p class="about-body" data-i18n="about.body2">
+            He trabajado con empresas de retail, logística y servicios financieros, automatizando procesos que antes consumían horas de trabajo manual y construyendo modelos de datos robustos.
+          </p>
+          <div class="about-links">
+            <a href="https://linkedin.com" target="_blank" class="social-link linkedin">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://github.com" target="_blank" class="social-link github">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+        <div class="about-tools">
+          <h3 class="tools-title" data-i18n="about.toolsTitle">Stack tecnológico</h3>
+          <div class="tools-grid">
+            <div class="tool-item"><span class="tool-icon">📊</span><span>Power BI</span></div>
+            <div class="tool-item"><span class="tool-icon">🐍</span><span>Python</span></div>
+            <div class="tool-item"><span class="tool-icon">🗄️</span><span>SQL Server</span></div>
+            <div class="tool-item"><span class="tool-icon">⚡</span><span>Power Automate</span></div>
+            <div class="tool-item"><span class="tool-icon">🔷</span><span>DAX</span></div>
+            <div class="tool-item"><span class="tool-icon">🔁</span><span>Power Query</span></div>
+            <div class="tool-item"><span class="tool-icon">🐼</span><span>Pandas</span></div>
+            <div class="tool-item"><span class="tool-icon">📗</span><span>Excel Avanzado</span></div>
+            <div class="tool-item"><span class="tool-icon">🌐</span><span>SharePoint</span></div>
+            <div class="tool-item"><span class="tool-icon">📦</span><span>Azure</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ PROYECTOS ═══════════ -->
+  <section class="projects" id="proyectos">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="projects.tag">// proyectos.json</span>
+        <h2 class="section-title" data-i18n="projects.title">Proyectos destacados</h2>
+        <p class="section-desc" data-i18n="projects.desc">Soluciones reales que generaron impacto medible en organizaciones</p>
+      </div>
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all"           data-i18n="projects.filterAll">Todos</button>
+        <button class="filter-btn"        data-filter="powerbi"       data-i18n="projects.filterPowerBI">Power BI</button>
+        <button class="filter-btn"        data-filter="python"        data-i18n="projects.filterPython">Python</button>
+        <button class="filter-btn"        data-filter="automatizacion" data-i18n="projects.filterAuto">Automatización</button>
+        <button class="filter-btn"        data-filter="etl"           data-i18n="projects.filterETL">ETL / Data Cleaning</button>
+        <button class="filter-btn"        data-filter="bi"            data-i18n="projects.filterBI">Business Intelligence</button>
+      </div>
+      <div class="projects-grid" id="projectsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════ HABILIDADES ═══════════ -->
+  <section class="skills" id="habilidades">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="skills.tag">// skills.json</span>
+        <h2 class="section-title" data-i18n="skills.title">Habilidades</h2>
+      </div>
+      <div class="skills-layout">
+        <div class="skills-bars"   id="skillsBars"></div>
+        <div class="skills-badges" id="skillsBadges"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ TESTIMONIOS ═══════════ -->
+  <section class="testimonials" id="testimonios">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="testimonials.tag">// testimonios.md</span>
+        <h2 class="section-title" data-i18n="testimonials.title">Lo que dicen mis clientes</h2>
+      </div>
+      <div class="testimonials-grid" id="testimonialsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CONTACTO ═══════════ -->
+  <section class="contact" id="contacto">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="contact.tag">// contacto.form</span>
+        <h2 class="section-title" data-i18n="contact.title">Trabajemos juntos</h2>
+        <p class="section-desc"   data-i18n="contact.desc">¿Tienes un proyecto de datos? Cuéntame qué necesitas</p>
+      </div>
+      <div class="contact-layout">
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="contact-icon">📧</span>
+            <div>
+              <strong data-i18n="contact.emailTitle">Email</strong>
+              <a href="mailto:tu@email.com">tu@email.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">💼</span>
+            <div>
+              <strong data-i18n="contact.linkedinTitle">LinkedIn</strong>
+              <a href="https://linkedin.com/in/tu-perfil" target="_blank">linkedin.com/in/tu-perfil</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">⏱️</span>
+            <div>
+              <strong data-i18n="contact.responseTitle">Respuesta</strong>
+              <span data-i18n="contact.responseText">Generalmente en menos de 24h</span>
+            </div>
+          </div>
+          <div class="availability-badge">
+            <span class="pulse-dot"></span>
+            <span data-i18n="contact.availability">Disponible para proyectos desde Junio 2025</span>
+          </div>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre" data-i18n="contact.nameLabel">Nombre *</label>
+              <input type="text" id="nombre" name="nombre"
+                     data-i18n-ph="contact.namePh" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-group">
+              <label for="empresa" data-i18n="contact.companyLabel">Empresa</label>
+              <input type="text" id="empresa" name="empresa"
+                     data-i18n-ph="contact.companyPh" placeholder="Tu empresa" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" data-i18n="contact.emailLabel">Email *</label>
+            <input type="email" id="email" name="email"
+                   data-i18n-ph="contact.emailPh" placeholder="tu@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="servicio" data-i18n="contact.serviceLabel">Servicio que necesitas</label>
+            <select id="servicio" name="servicio">
+              <option value="">Selecciona...</option>
+              <option value="powerbi">Dashboard Power BI</option>
+              <option value="python">Análisis con Python</option>
+              <option value="etl">Pipeline ETL</option>
+              <option value="automatizacion">Automatización de reportes</option>
+              <option value="modelado">Modelado de datos</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mensaje" data-i18n="contact.msgLabel">Mensaje *</label>
+            <textarea id="mensaje" name="mensaje" rows="5"
+                      data-i18n-ph="contact.msgPh"
+                      placeholder="Cuéntame sobre tu proyecto..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary btn-full">
+            <span id="formBtnText" data-i18n="contact.send">Enviar mensaje →</span>
+          </button>
+          <div class="form-success" id="formSuccess" data-i18n="contact.success">
+            ✓ Mensaje enviado. Te respondo pronto.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="logo-icon">◈</span>
+        <span class="logo-text">DataPortfolio</span>
+      </div>
+      <p class="footer-copy" data-i18n="footer.copy">© 2025 · Diseñado y desarrollado con datos y código</p>
+      <div class="footer-links">
+        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        <a href="https://github.com"   target="_blank">GitHub</a>
+        <a href="assets/cv.pdf" download data-i18n="nav.cv">CV</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="projectModal">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- JS: i18n y lang deben ir ANTES que los módulos de render -->
+  <script src="js/data.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/lang.js"></script>
+  <script src="js/projects.js"></script>
+  <script src="js/skills.js"></script>
+  <script src="js/testimonials.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/contact.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
